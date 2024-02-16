@@ -31,7 +31,7 @@ const projects = {
 export default function Right() {
   return (
     <>
-      <div className=" font-bold text-3xl mt-10 text-left ml-10 ">
+      {/* <div className=" font-bold text-3xl mt-10 text-left ml-10 ">
         Hello, I am Manohar Dahal
       </div>
       <div className="text-left mt-5 ml-10">I am a Web Developer</div>
@@ -48,6 +48,17 @@ export default function Right() {
         {Object.values(projects).map((project) => (
           <Project key={project.name} project={project} />
         ))}
+      </div> */}
+
+      <div className="h-screen overflow-y-scroll">
+        {/* Your content here */}
+        <div className="flex flex-col space-y-4">
+          {/* Example content */}
+          <div className="bg-white p-4">Content 1</div>
+          <div className="bg-gray-100 p-4">Content 2</div>
+          <div className="bg-white p-4">Content 3</div>
+          {/* Add more content */}
+        </div>
       </div>
     </>
   );

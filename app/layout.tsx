@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className="w-screen h-screen relative flex flex-wrap">
-          <div className=" w-1/3 bg-gray-500 h-full">{left}</div>
-          <div className=" w-2/3 bg-gray-400 h-full overflow-auto">{right}</div>
+        <main className="grid grid-cols-1 md:grid-cols-3">
+          <div className="col-span-1 md:col-span-1 bg-gray-100">{left}</div>
+          <div className="col-span-1 md:col-span-2">{right}</div>
         </main>
       </body>
     </html>

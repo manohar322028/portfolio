@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <main className="grid grid-cols-1 md:grid-cols-3">
-          <div className="col-span-1 md:col-span-1 bg-gray-100">{left}</div>
+          <div className="col-span-1 md:col-span-1">{left}</div>
           <div className="col-span-1 md:col-span-2">{right}</div>
         </main>
       </body>

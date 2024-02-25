@@ -24,7 +24,34 @@ export default function Left() {
           </a>
         </div>
       </div>
-      <footer className="bg-transparent py-4 text-center">Contact Info</footer>
+      <footer className="bg-transparent py-4 px-10 text-left">
+        <hr className="w-[70%] h-0.5 mx-auto my-4 bg-leftTextColor border-0 rounded md:my-10 dark:bg-gray-700" />
+        <span className="text-sm text-leftTextColor">Contact Me</span>
+        <div className="text-leftTextColor">
+          <a href="#" className="">
+            {/* icon */}
+            <img />
+            {/* text */}
+            <p>9861322028</p>
+          </a>
+
+          <a href="#" className="">
+            {/* icon */}
+            <img />
+            {/* text */}
+            <p>manohardahal40@gmail.com</p>
+          </a>
+
+          <a href="#" className="">
+            {/* icon */}
+            <img />
+            {/* text */}
+            <p>manohardahal@elytrasolutions.com</p>
+          </a>
+        </div>
+
+        <section className="bio">I believe in process</section>
+      </footer>
     </div>
   );
 }

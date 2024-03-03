@@ -19,9 +19,14 @@ const config: Config = {
         rightcolor2: "#C9C9C9",
         // iconhover: "#000000",
         // iconcolor: "#222222",
-        backgroundcolor: "#dddddd",
+        backgroundcolor: "rgba(28, 22, 28, 0.2)",
         leftTextColor: "#FFFFFF",
         rightTextColor: "#000000",
+      },
+
+      fontFamily: {
+        audiowide: ["Audiowide", "sans-serif"],
+        julee: ["Julee", "cursive"],
       },
     },
   },

@@ -52,10 +52,10 @@ export default function Right() {
 
       <div className="h-screen overflow-y-scroll">
         {/* Your content here */}
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col bg-white h-screen">
           {/* Example content */}
           <div className="bg-white p-4">Content 1</div>
-          <div className="bg-gray-100 p-4">Content 2</div>
+          <div className="bg-[#999999] p-4">Content 2</div>
           <div className="bg-white p-4">Content 3</div>
           {/* Add more content */}
         </div>

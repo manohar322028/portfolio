@@ -64,7 +64,22 @@ export default function Right() {
 
           <div className="bg-rightcolor2 pl-10 py-8">
             <h2 className="text-2xl">Technical Skills</h2>
+            <div className="grid my-4 mr-4 gap-4 grid-cols-3">
+              {skills.map((skill) => (
+                <Skill key={skill} skill={skill} />
+              ))}
+            </div>
             <h2 className="text-2xl">Other Skills</h2>
+            <div className="flex flex-row flex-wrap gap-4 mt-4">
+              <li>Communication</li>
+              <li>Leadership</li>
+              <li>Problem Solving</li>
+              <li>Public Speaking</li>
+              <li>Teamwork</li>
+              <li>Adaptability</li>
+              <li>Creativity</li>
+              <li>Playing Guitar ;)</li>
+            </div>
           </div>
           <div className="bg-rightcolor1 pl-10 py-8">
             <h2 className="text-2xl">Digital Dilemmas</h2>

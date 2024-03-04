@@ -19,7 +19,7 @@ const config: Config = {
         rightcolor2: "#C9C9C9",
         // iconhover: "#000000",
         // iconcolor: "#222222",
-        backgroundcolor: "rgba(28, 22, 28, 0.2)",
+        backgroundcolor: "#0d484e",
         leftTextColor: "#FFFFFF",
         rightTextColor: "#000000",
       },

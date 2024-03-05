@@ -1,6 +1,23 @@
 import Skill from "@/components/skill";
 import Project from "@/components/project";
-const skills = ["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwindcss"];
+const skills = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Tailwindcss",
+  "Git",
+  "Github",
+  "VSCode",
+  "Figma",
+  "Adobe XD",
+  "Framer Motion",
+  "TypeScript",
+  "Node.js",
+  "Express",
+  "MongoDB",
+];
 const projects = {
   project1: {
     name: "Project 1",
@@ -64,7 +81,7 @@ export default function Right() {
 
           <div className="bg-rightcolor2 pl-10 py-8">
             <h2 className="text-2xl">Technical Skills</h2>
-            <div className="grid my-4 mr-4 gap-4 grid-cols-3">
+            <div className="grid my-4 mr-4 gap-4 grid-cols-10">
               {skills.map((skill) => (
                 <Skill key={skill} skill={skill} />
               ))}

@@ -18,6 +18,30 @@ const skills = [
   "Express",
   "MongoDB",
 ];
+
+const events = {
+  event1: {
+    title: "Event 1",
+    date: "2022-01-01",
+    description: "Event 1 description",
+  },
+  event2: {
+    title: "Event 2",
+    date: "2022-02-01",
+    description: "Event 2 description",
+  },
+  event3: {
+    title: "Event 3",
+    date: "2022-03-01",
+    description: "Event 3 description",
+  },
+
+  event4: {
+    title: "Event 4",
+    date: "2022-04-01",
+    description: "Event 4 description",
+  },
+};
 const projects = {
   project1: {
     name: "Project 1",
@@ -48,26 +72,7 @@ const projects = {
 export default function Right() {
   return (
     <>
-      {/* <div className=" font-bold text-3xl mt-10 text-left ml-10 ">
-        Hello, I am Manohar Dahal
-      </div>
-      <div className="text-left mt-5 ml-10">I am a Web Developer</div>
-
-      <div className="text-left mt-5 ml-10">What I can do</div>
-      <div className="grid mt-10 ml-10 mr-10 gap-5 grid-cols-3">
-        {skills.map((skill) => (
-          <Skill key={skill} skill={skill} />
-        ))}
-      </div>
-
-      <div className="text-left mt-5 ml-10">What I have done</div>
-      <div className="grid mt-10 ml-10 mr-10 gap-5 grid-cols-3">
-        {Object.values(projects).map((project) => (
-          <Project key={project.name} project={project} />
-        ))}
-      </div> */}
-
-      <div className="h-screen overflow-y-scroll">
+      <div className="h-screen overflow-y-scroll opacity-80">
         <div className="flex flex-col bg-white h-screen font-julee">
           <div className="bg-rightcolor1 pl-10 py-8">
             <h1 className="text-4xl">Hi, I am Manohar Dahal</h1>
@@ -81,7 +86,7 @@ export default function Right() {
 
           <div className="bg-rightcolor2 pl-10 py-8">
             <h2 className="text-2xl">Technical Skills</h2>
-            <div className="grid my-4 mr-4 gap-4 grid-cols-10">
+            <div className="grid my-4 mr-4 gap-4 grid-cols-7">
               {skills.map((skill) => (
                 <Skill key={skill} skill={skill} />
               ))}

@@ -19,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <main className="bg-backgroundcolor ">
-          <div className="grid  md:grid-cols-3 w-[75%] mx-auto">
+        <main className=" h-full bg-backgroundcolor ">
+          <div className=" md:grid md:grid-cols-3 w-[75%] mx-auto">
             <div className=" md:col-span-1">{left}</div>
             <div className="md:col-span-2">{right}</div>
           </div>

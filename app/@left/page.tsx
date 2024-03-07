@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Left() {
   return (
-    <div className="h-screen flex flex-col justify-between bg-leftcolor bg-opacity-80">
+    <div className="h-full flex flex-col justify-between bg-leftcolor bg-opacity-80">
       <div className="flex-1 flex flex-col items-center justify-center">
         <Image
           src="/phuto.jpg"

@@ -1,5 +1,6 @@
 import Skill from "@/components/skill";
 import Project from "@/components/project";
+import Experience from "@/components/experience";
 const skills = [
   "HTML",
   "CSS",
@@ -72,9 +73,9 @@ const projects = {
 export default function Right() {
   return (
     <>
-      <div className="h-screen overflow-y-scroll opacity-80">
+      <div className="h-full md:overflow-y-scroll opacity-80">
         <div className="flex flex-col bg-white h-screen font-julee">
-          <div className="bg-rightcolor1 pl-10 py-8">
+          <div className="bg-rightcolor1 pl-10 py-8 pr-4">
             <h1 className="text-4xl">Hi, I am Manohar Dahal</h1>
             <div className="mt-4 text-lg ">
               <p>a computer engineer,</p>
@@ -84,9 +85,9 @@ export default function Right() {
             </div>
           </div>
 
-          <div className="bg-rightcolor2 pl-10 py-8">
+          <div className="bg-rightcolor2 pl-10 py-8 pr-4">
             <h2 className="text-2xl">Technical Skills</h2>
-            <div className="grid my-4 mr-4 gap-4 grid-cols-7">
+            <div className="grid my-4 gap-4 grid-cols-7">
               {skills.map((skill) => (
                 <Skill key={skill} skill={skill} />
               ))}
@@ -103,7 +104,7 @@ export default function Right() {
               <li>Playing Guitar ;)</li>
             </div>
           </div>
-          <div className="bg-rightcolor1 pl-10 py-8">
+          <div className="bg-rightcolor1 pl-10 py-8 pr-4">
             <h2 className="text-2xl">Digital Dilemmas</h2>
             <div className="grid my-4 mr-4 gap-4 grid-cols-2">
               {Object.values(projects).map((project) => (
@@ -111,8 +112,15 @@ export default function Right() {
               ))}
             </div>
           </div>
-          <div className="bg-rightcolor2 pl-10 py-8">
+          <div className="bg-rightcolor2 pl-10 py-8 pr-8">
             <h2 className="text-2xl">Boss Battles</h2>
+            <div className="relative py-4">
+              <Experience />
+              <Experience />
+              <Experience />
+              <Experience />
+              <Experience />
+            </div>
           </div>
         </div>
       </div>

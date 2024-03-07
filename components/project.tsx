@@ -16,7 +16,7 @@ export default function Project({ project }: { project: projectProps }) {
       ></div>
 
       <div className="px-6 pb-4">
-        <h5 className="mt-2 text-lg tracking-tight text-gray-900">
+        <h5 className="mt-2 text-lg tracking-tight font-semibold text-gray-900">
           {project.name}
         </h5>
 

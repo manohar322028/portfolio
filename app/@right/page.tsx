@@ -73,54 +73,54 @@ const projects = {
 export default function Right() {
   return (
     <>
-      <div className="h-full md:overflow-y-scroll opacity-80">
-        <div className="flex flex-col bg-white h-screen font-julee">
-          <div className="bg-rightcolor1 md:px-10 px-4 py-8">
-            <h1 className="text-4xl">Hi, I am Manohar Dahal</h1>
-            <div className="mt-4 text-lg ">
-              <p>a computer engineer,</p>
-              <p>a writer, </p>
-              <p>a musician. </p>
-              <p>I know about beats, bytes and words.</p>
-            </div>
+      <div className=" flex flex-col h-screen font-julee opacity-80">
+        <div className="bg-rightcolor1 px-4 md:px-8 py-6">
+          <h1 className="text-4xl">Hi, I am Manohar Dahal</h1>
+          <div className="mt-4 text-lg ">
+            <p>a computer engineer,</p>
+            <p>a writer, </p>
+            <p>a musician. </p>
+            <p>I know about beats, bytes and words.</p>
           </div>
+        </div>
 
-          <div className="bg-rightcolor2 md:pl-10 px-4 py-8">
-            <h2 className="text-2xl">Technical Skills</h2>
-            <div className="grid mx-auto my-4 gap-4 grid-cols-3 sm:grid-cols-7 md:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
-              {skills.map((skill) => (
-                <Skill key={skill} skill={skill} />
-              ))}
-            </div>
-            <h2 className="text-2xl">Other Skills</h2>
-            <div className="flex flex-row flex-wrap gap-4 mt-4">
-              <li>Communication</li>
-              <li>Leadership</li>
-              <li>Problem Solving</li>
-              <li>Public Speaking</li>
-              <li>Teamwork</li>
-              <li>Adaptability</li>
-              <li>Creativity</li>
-              <li>Playing Guitar ;)</li>
-            </div>
+        <div className="bg-rightcolor2 px-4 md:px-8 py-6">
+          <h2 className="text-2xl">Technical Skills</h2>
+          <div className="mx-auto my-4 gap-4 grid grid-cols-3 sm:grid-cols-7 md:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 ">
+            {skills.map((skill) => (
+              <div key={skill} className="flex justify-center items-center">
+                <Skill skill={skill} />
+              </div>
+            ))}
           </div>
-          <div className="bg-rightcolor1 md:pl-10 px-4 py-8">
-            <h2 className="text-2xl">Digital Dilemmas</h2>
-            <div className=" my-4 mr-4 sm:gap-x-4 sm:grid sm:grid-cols-2 ">
-              {Object.values(projects).map((project) => (
-                <Project key={project.name} project={project} />
-              ))}
-            </div>
+          <h2 className="text-2xl">Other Skills</h2>
+          <div className="flex flex-row flex-wrap gap-4 mt-4">
+            <li>Communication</li>
+            <li>Leadership</li>
+            <li>Problem Solving</li>
+            <li>Public Speaking</li>
+            <li>Teamwork</li>
+            <li>Adaptability</li>
+            <li>Creativity</li>
+            <li>Playing Guitar ;)</li>
           </div>
-          <div className="bg-rightcolor2 md:px-10 px-4 py-8">
-            <h2 className="text-2xl">Boss Battles</h2>
-            <div className="relative py-4">
-              <Experience />
-              <Experience />
-              <Experience />
-              <Experience />
-              <Experience />
-            </div>
+        </div>
+        <div className="bg-rightcolor1 px-4 md:px-8 py-6">
+          <h2 className="text-2xl">Digital Dilemmas</h2>
+          <div className=" my-4 sm:gap-x-4 sm:grid sm:grid-cols-2 items-center justify-center">
+            {Object.values(projects).map((project) => (
+              <Project key={project.name} project={project} />
+            ))}
+          </div>
+        </div>
+        <div className="bg-rightcolor2 px-4 md:px-8 py-6">
+          <h2 className="text-2xl">Boss Battles</h2>
+          <div className="relative py-4">
+            <Experience />
+            <Experience />
+            <Experience />
+            <Experience />
+            <Experience />
           </div>
         </div>
       </div>

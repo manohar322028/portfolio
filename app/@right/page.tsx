@@ -75,7 +75,7 @@ export default function Right() {
     <>
       <div className="h-full md:overflow-y-scroll opacity-80">
         <div className="flex flex-col bg-white h-screen font-julee">
-          <div className="bg-rightcolor1 pl-10 py-8 pr-4">
+          <div className="bg-rightcolor1 md:px-10 px-4 py-8">
             <h1 className="text-4xl">Hi, I am Manohar Dahal</h1>
             <div className="mt-4 text-lg ">
               <p>a computer engineer,</p>
@@ -85,9 +85,9 @@ export default function Right() {
             </div>
           </div>
 
-          <div className="bg-rightcolor2 pl-10 py-8 pr-4">
+          <div className="bg-rightcolor2 md:pl-10 px-4 py-8">
             <h2 className="text-2xl">Technical Skills</h2>
-            <div className="grid my-4 gap-4 grid-cols-7">
+            <div className="grid mx-auto my-4 gap-4 grid-cols-3 sm:grid-cols-7 md:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8">
               {skills.map((skill) => (
                 <Skill key={skill} skill={skill} />
               ))}
@@ -104,15 +104,15 @@ export default function Right() {
               <li>Playing Guitar ;)</li>
             </div>
           </div>
-          <div className="bg-rightcolor1 pl-10 py-8 pr-4">
+          <div className="bg-rightcolor1 md:pl-10 px-4 py-8">
             <h2 className="text-2xl">Digital Dilemmas</h2>
-            <div className="grid my-4 mr-4 gap-4 grid-cols-2">
+            <div className=" my-4 mr-4 sm:gap-x-4 sm:grid sm:grid-cols-2 ">
               {Object.values(projects).map((project) => (
                 <Project key={project.name} project={project} />
               ))}
             </div>
           </div>
-          <div className="bg-rightcolor2 pl-10 py-8 pr-8">
+          <div className="bg-rightcolor2 md:px-10 px-4 py-8">
             <h2 className="text-2xl">Boss Battles</h2>
             <div className="relative py-4">
               <Experience />

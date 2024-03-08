@@ -8,15 +8,17 @@ import Image from "next/image";
 export default function Left() {
   return (
     <div className="h-full flex flex-col justify-between bg-leftcolor bg-opacity-80">
-      <div className="flex-1 flex flex-col items-center justify-center">
-        <Image
-          src="/phuto.jpg"
-          alt="Profile picture of Manohar Dahal"
-          width={200}
-          height={200}
-          priority={true}
-          className="rounded-full my-6"
-        />
+      <div className="relative flex-1 flex flex-col items-center justify-center">
+        <div className="rounded-full overflow-hidden h-auto w-[60%] flex items-center justify-center my-6">
+          <Image
+            src="/phuto.jpg"
+            alt="Profile picture of Manohar Dahal"
+            width={200}
+            height={200}
+            priority={true}
+            className="object-cover object-center h-full w-full"
+          />
+        </div>
         <div className="flex space-x-4 mb-4">
           <a href="#" className="opacity-70 hover:opacity-90">
             <Image src={fb.src} alt="Facebook" width={40} height={40} />
@@ -32,7 +34,7 @@ export default function Left() {
         </div>
       </div>
       <footer className="bg-transparent text-left opacity-80">
-        <div className="pb-2 mx-4 px-4">
+        <div className="pb-2 mx-4 md:px-4 px-2">
           <hr className="w-[100%] h-[0.15px] mx-auto bg-leftTextColor border-0 mb-4 rounded" />
           <span className="text-2xl text-leftTextColor font-audiowide my-2 ">
             Contact Me

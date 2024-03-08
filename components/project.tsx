@@ -7,7 +7,7 @@ interface projectProps {
 }
 export default function Project({ project }: { project: projectProps }) {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-sm shadow">
+    <div className="w-full mb-4 bg-white border border-gray-200 rounded-sm shadow">
       <div
         className="h-40 rounded-t-sm bg-cover bg-center "
         style={{

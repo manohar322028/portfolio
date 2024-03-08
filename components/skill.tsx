@@ -1,7 +1,7 @@
 const Skill = ({ skill }: { skill: string }) => {
   return (
     <>
-      <svg width="70" height="70">
+      <svg className="w-20 h-20">
         <defs>
           <clipPath id="shield" clipPathUnits="objectBoundingBox">
             <path
@@ -13,8 +13,7 @@ const Skill = ({ skill }: { skill: string }) => {
         </defs>
 
         <rect
-          width="70"
-          height="70"
+          className="w-20 h-20"
           clipPath="url(#shield)"
           fill="#0d484e"
           opacity={0.5}

@@ -15,7 +15,7 @@ const Skill = ({ skill }: { skill: string }) => {
         <rect
           width="70"
           height="70"
-          clip-path="url(#shield)"
+          clipPath="url(#shield)"
           fill="#0d484e"
           opacity={0.5}
         />

@@ -18,13 +18,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <main className=" h-full bg-backgroundcolor ">
-          <div className=" md:grid md:grid-cols-3 w-[75%] mx-auto">
-            <div className=" md:col-span-1">{left}</div>
-            <div className="md:col-span-2">{right}</div>
-          </div>
-        </main>
+      <body className="h-full bg-backgroundcolor ">
+        <div className=" md:grid md:grid-cols-3 2xl:max-w-[1440px] lg:max-w-[1024px] md:max-w-[768px] mx-auto shadow-2xl shadow-gray-900">
+          <div className=" md:col-span-1">{left}</div>
+          <div className="md:col-span-2">{right}</div>
+        </div>
       </body>
     </html>
   );

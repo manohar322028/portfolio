@@ -1,4 +1,4 @@
-import { dbConnect } from "@/backend/db.js";
+import { dbConnect } from "@/backend/db.ts";
 import { NextResponse } from "next/server";
 import { Skill } from "@/backend/models/skill.ts";
 export async function GET() {

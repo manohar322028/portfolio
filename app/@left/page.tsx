@@ -4,6 +4,8 @@ import git from "@/public/github.svg";
 import phone from "@/public/phone.svg";
 import mail from "@/public/mail.svg";
 import Image from "next/image";
+import { ProfilePicture } from "@/backend/models/models";
+import { Info } from "@/backend/models/models";
 
 export default function Left() {
   return (

@@ -1,6 +1,12 @@
 import Skill from "@/components/skill";
 import Project from "@/components/project";
 import Experience from "@/components/experience";
+import {
+  Skill as SkillData,
+  Project as ProjectData,
+  Experience as ExperienceData,
+} from "@/backend/models/models";
+
 const skills = [
   "HTML",
   "CSS",

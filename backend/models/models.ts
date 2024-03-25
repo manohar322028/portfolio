@@ -1,11 +1,33 @@
 import mongoose from "mongoose";
 
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+  },
+});
+
 const skillSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
   icon: {
+    type: String,
+    required: true,
+  },
+});
+
+const otherSkillSchema = new mongoose.Schema({
+  name: {
     type: String,
     required: true,
   },
@@ -53,3 +75,10 @@ export const Project =
 
 export const Skill =
   mongoose.models.skills || mongoose.model("skills", skillSchema);
+
+export const User =
+  mongoose.models.users || mongoose.model("users", userSchema);
+
+export const OtherSkill =
+  mongoose.models.otherSkills ||
+  mongoose.model("otherSkills", otherSkillSchema);

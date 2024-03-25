@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Manohar Dahal",
   description: "Portfolio of Manohar Dahal",
@@ -16,7 +14,7 @@ export default function RootLayout({
   right: React.ReactNode;
   left: React.ReactNode;
 }) {
-  return (
+  return global.loggedIn ? (
     <html lang="en">
       <body className="h-full bg-backgroundcolor ">
         <div className="grid grid-cols-1 md:grid-cols-3 2xl:max-w-[1440px] lg:max-w-[1024px] md:max-w-[768px] mx-auto md:shadow-2xl md:shadow-gray-900">
@@ -27,5 +25,7 @@ export default function RootLayout({
         </div>
       </body>
     </html>
+  ) : (
+    <p>papa ji ka thullu</p>
   );
 }

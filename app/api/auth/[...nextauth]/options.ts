@@ -6,7 +6,7 @@ import { User } from "@/backend/models/models";
 const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Username and Password",
+      name: "credentials",
       credentials: {
         username: { label: "Username", type: "text", placeholder: "username" },
         password: {

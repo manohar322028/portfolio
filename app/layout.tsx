@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -7,25 +6,12 @@ export const metadata: Metadata = {
   description: "Portfolio of Manohar Dahal",
 };
 
-export default function RootLayout({
-  right,
-  left,
-}: {
-  right: React.ReactNode;
-  left: React.ReactNode;
-}) {
-  return global.loggedIn ? (
-    <html lang="en">
-      <body className="h-full bg-backgroundcolor ">
-        <div className="grid grid-cols-1 md:grid-cols-3 2xl:max-w-[1440px] lg:max-w-[1024px] md:max-w-[768px] mx-auto md:shadow-2xl md:shadow-gray-900">
-          <div className="col-span-1 md:col-span-1">{left}</div>
-          <div className="col-span-1 md:col-span-2 md:overflow-y-scroll">
-            {right}
-          </div>
-        </div>
-      </body>
-    </html>
-  ) : (
-    <p>papa ji ka thullu</p>
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <html lang="en">
+        <body className="h-full bg-backgroundcolor ">{children}</body>
+      </html>
+    </>
   );
 }

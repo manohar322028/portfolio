@@ -1,4 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { Document } from "mongoose";
+import {
+  IExperience,
+  IInfo,
+  IOtherSkill,
+  IProject,
+  IProfilePicture,
+  ISkill,
+  IUser,
+} from "./interfaces";
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -61,24 +70,42 @@ const infoSchema = new mongoose.Schema({
   intros: [introSchema],
 });
 
-export const Info = mongoose.models.info || mongoose.model("info", infoSchema);
+export const Info: mongoose.Model<IInfo> =
+  mongoose.models.info ||
+  (mongoose.model<IInfo>("info", infoSchema) as mongoose.Model<IInfo>);
 
-export const Experience =
-  mongoose.models.experience || mongoose.model("experience", experienceSchema);
+export const Experience: mongoose.Model<IExperience> =
+  mongoose.models.experience ||
+  (mongoose.model<IExperience>(
+    "experience",
+    experienceSchema
+  ) as mongoose.Model<IExperience>);
 
-export const ProfilePicture =
+export const ProfilePicture: mongoose.Model<IProfilePicture> =
   mongoose.models.profilePictures ||
-  mongoose.model("profilePictures", profilePictureSchema);
+  (mongoose.model<IProfilePicture>(
+    "profilePictures",
+    profilePictureSchema
+  ) as mongoose.Model<IProfilePicture>);
 
-export const Project =
-  mongoose.models.projects || mongoose.model("projects", projectSchema);
+export const Project: mongoose.Model<IProject> =
+  mongoose.models.projects ||
+  (mongoose.model<IProject>(
+    "projects",
+    projectSchema
+  ) as mongoose.Model<IProject>);
 
-export const Skill =
-  mongoose.models.skills || mongoose.model("skills", skillSchema);
+export const Skill: mongoose.Model<ISkill> =
+  mongoose.models.skills ||
+  (mongoose.model<ISkill>("skills", skillSchema) as mongoose.Model<ISkill>);
 
-export const User =
-  mongoose.models.users || mongoose.model("users", userSchema);
+export const User: mongoose.Model<IUser> =
+  mongoose.models.users ||
+  (mongoose.model<IUser>("users", userSchema) as mongoose.Model<IUser>);
 
-export const OtherSkill =
+export const OtherSkill: mongoose.Model<IOtherSkill> =
   mongoose.models.otherSkills ||
-  mongoose.model("otherSkills", otherSkillSchema);
+  (mongoose.model<IOtherSkill>(
+    "otherSkills",
+    otherSkillSchema
+  ) as mongoose.Model<IOtherSkill>);

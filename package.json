@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seeder-import": "ts-node --project tsconfig.seeder.json ./backend/seeder.ts",
+    "seeder-destroy": "ts-node --project tsconfig.seeder.json ./backend/seeder.ts -d"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
     "faker": "^6.6.6",
     "mongoose": "^8.2.2",
     "next": "14.1.0",

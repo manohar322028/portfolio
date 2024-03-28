@@ -1,8 +1,26 @@
-import { Skill } from "./models/models";
-import { ISkill } from "./models/interfaces";
+import {
+  Skill,
+  Experience,
+  Info,
+  ProfilePicture,
+  Project,
+  OtherSkill,
+  Intro,
+} from "./models/models";
+import {
+  ISkill,
+  IExperience,
+  IInfo,
+  IProfilePicture,
+  IProject,
+  IOtherSkill,
+  IIntro,
+} from "./models/interfaces";
 
 import mongoose, { ConnectOptions } from "mongoose";
 import dotenv from "dotenv";
+
+// Data
 
 const skills: ISkill[] = [
   {
@@ -17,97 +35,51 @@ const skills: ISkill[] = [
     name: "JavaScript",
     icon: "fab fa-js-square",
   },
+];
+
+const experiences: IExperience[] = [
   {
-    name: "React",
-    icon: "fab fa-react",
+    id: "1",
+    title: "Software Developer",
+    description: "Developed software",
+    start: "2021-01-01",
+    end: "2021-01-01",
   },
+];
+
+const intros: IIntro[] = [
   {
-    name: "Node",
-    icon: "fab fa-node-js",
+    description: "Hello",
   },
+];
+
+const infos: IInfo[] = [
   {
-    name: "MongoDB",
-    icon: "fas fa-database",
+    heading: "Heading",
+    bio: "Bio",
+    intros: intros,
   },
+];
+
+const profilePictures: IProfilePicture[] = [
   {
-    name: "Python",
-    icon: "fab fa-python",
+    image: "image",
   },
+];
+
+const projects: IProject[] = [
   {
-    name: "C++",
-    icon: "fas fa-code",
+    id: "1",
+    title: "Project",
+    description: "Description",
+    image: "image",
+    link: "link",
   },
+];
+
+const otherSkills: IOtherSkill[] = [
   {
-    name: "Java",
-    icon: "fab fa-java",
-  },
-  {
-    name: "SQL",
-    icon: "fas fa-database",
-  },
-  {
-    name: "Git",
-    icon: "fab fa-git-alt",
-  },
-  {
-    name: "Docker",
-    icon: "fab fa-docker",
-  },
-  {
-    name: "Kubernetes",
-    icon: "fab fa-kubernetes",
-  },
-  {
-    name: "AWS",
-    icon: "fab fa-aws",
-  },
-  {
-    name: "Azure",
-    icon: "fab fa-microsoft",
-  },
-  {
-    name: "Google Cloud",
-    icon: "fab fa-google",
-  },
-  {
-    name: "Linux",
-    icon: "fab fa-linux",
-  },
-  {
-    name: "Windows",
-    icon: "fab fa-windows",
-  },
-  {
-    name: "MacOS",
-    icon: "fab fa-apple",
-  },
-  {
-    name: "Android",
-    icon: "fab fa-android",
-  },
-  {
-    name: "iOS",
-    icon: "fab fa-apple",
-  },
-  {
-    name: "Flutter",
-    icon: "fab fa-flutter",
-  },
-  {
-    name: "Swift",
-    icon: "fab fa-swift",
-  },
-  {
-    name: "Kotlin",
-    icon: "fab fa-kotlin",
-  },
-  {
-    name: "Dart",
-    icon: "fas fa-code",
-  },
-  {
-    name: "Ruby",
-    icon: "fas fa-gem",
+    name: "Skill",
   },
 ];
 
@@ -138,6 +110,17 @@ const importData = async () => {
   try {
     await Skill.deleteMany();
     await Skill.insertMany(skills);
+    await Experience.deleteMany();
+    await Experience.insertMany(experiences);
+    await Info.deleteMany();
+    await Info.insertMany(infos);
+    await ProfilePicture.deleteMany();
+    await ProfilePicture.insertMany(profilePictures);
+    await Project.deleteMany();
+    await Project.insertMany(projects);
+    await OtherSkill.deleteMany();
+    await OtherSkill.insertMany(otherSkills);
+
     console.log("Data Import Success");
     process.exit(0);
   } catch (error) {
@@ -150,6 +133,12 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     await Skill.deleteMany();
+    await Experience.deleteMany();
+    await Info.deleteMany();
+    await ProfilePicture.deleteMany();
+    await Project.deleteMany();
+    await OtherSkill.deleteMany();
+
     console.log("Data Destroyed");
     process.exit(0);
   } catch (error) {

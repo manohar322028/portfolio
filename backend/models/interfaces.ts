@@ -14,6 +14,7 @@ interface IOtherSkill {
 }
 
 interface IProject {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -25,6 +26,7 @@ interface IProfilePicture {
 }
 
 interface IExperience {
+  id: string;
   title: string;
   description: string;
   start: string;
@@ -49,4 +51,5 @@ export type {
   IProfilePicture,
   IExperience,
   IInfo,
+  IIntro,
 };

@@ -7,6 +7,7 @@ import {
   IProfilePicture,
   ISkill,
   IUser,
+  IIntro,
 } from "./interfaces";
 
 const userSchema = new mongoose.Schema({
@@ -43,6 +44,7 @@ const otherSkillSchema = new mongoose.Schema({
 });
 
 const projectSchema = new mongoose.Schema({
+  id: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   image: { type: String, required: true },
@@ -54,6 +56,7 @@ const profilePictureSchema = new mongoose.Schema({
 });
 
 const experienceSchema = new mongoose.Schema({
+  id: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: true },
   start: { type: String, required: true },
@@ -69,6 +72,10 @@ const infoSchema = new mongoose.Schema({
   bio: { type: String, required: true },
   intros: [introSchema],
 });
+
+export const Intro: mongoose.Model<IIntro> =
+  mongoose.models.intro ||
+  (mongoose.model<IIntro>("intro", introSchema) as mongoose.Model<IIntro>);
 
 export const Info: mongoose.Model<IInfo> =
   mongoose.models.info ||

@@ -6,18 +6,25 @@ import { useState, useEffect } from "react";
 import SignOut from "@/components/signout";
 import { Info, ProfilePicture, OtherSkill } from "@/backend/models/models";
 import { dbConnect } from "@/backend/db";
-import { ISkill } from "@/backend/models/interfaces";
+import {
+  IInfo,
+  IProfilePicture,
+  IOtherSkill,
+  ISkill,
+  IProject,
+  IExperience,
+} from "@/backend/models/interfaces";
 import { get } from "http";
 
 export default async function Dashboard() {
   await dbConnect();
 
-  const [getInfo, setInfo] = useState([]);
-  const [getProfilePicture, setProfilePicture] = useState([]);
-  const [getSkill, setSkill] = useState([]);
-  const [getOtherSkill, setOtherSkill] = useState([]);
-  const [getProject, setProject] = useState([]);
-  const [getExperience, setExperience] = useState([]);
+  const [info, setInfo] = useState<IInfo[]>([]);
+  const [profilePicture, setProfilePicture] = useState<IProfilePicture[]>([]);
+  const [skills, setSkill] = useState<ISkill[]>([]);
+  const [otherSkills, setOtherSkill] = useState<IOtherSkill[]>([]);
+  const [projects, setProject] = useState<IProject[]>([]);
+  const [experiences, setExperience] = useState<IExperience[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,7 +37,7 @@ export default async function Dashboard() {
     };
 
     fetchData();
-  }, [getSkill]);
+  }, [skills]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +52,7 @@ export default async function Dashboard() {
     };
 
     fetchData();
-  }, [getProject]);
+  }, [projects]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,15 +67,38 @@ export default async function Dashboard() {
     };
 
     fetchData();
-  }, [getExperience]);
+  }, [experiences]);
 
-  const info = await Info.find();
+  useEffect(() => {
+    const fetchMongoData = async () => {
+      const data: IInfo[] = await Info.find();
 
-  const profilePicture = await ProfilePicture.find();
-  const otherSkill = await OtherSkill.find();
-  const skills: ISkill[] = await fetch(
-    process.env.MAIN_URL + "/api/skills"
-  ).then((res) => res.json());
+      setInfo(data);
+    };
+
+    fetchMongoData();
+  }, [info]);
+
+  useEffect(() => {
+    const fetchMongoData = async () => {
+      const profilePicture: IProfilePicture[] = await ProfilePicture.find();
+
+      setProfilePicture(profilePicture);
+    };
+
+    fetchMongoData();
+  }, [profilePicture]);
+
+  useEffect(() => {
+    const fetchMongoData = async () => {
+      const otherSkill: IOtherSkill[] = await OtherSkill.find();
+
+      setOtherSkill(otherSkill);
+    };
+
+    fetchMongoData();
+  }, [otherSkills]);
+
   return (
     <div className="bg-gray-900 text-white px-8 py-12 h-full">
       <div className="mb-8 text-right">
@@ -168,7 +198,7 @@ export default async function Dashboard() {
           <h2 className="text-2xl font-semibold mb-4">Other Skills:</h2>
           <table className="min-w-full">
             <tbody>
-              {otherSkill.map((skill) => (
+              {otherSkills.map((skill) => (
                 <tr key={skill.name} className="border-b">
                   <td className="py-2">{skill.name}</td>
                   <td className="text-right space-x-2">
@@ -195,17 +225,19 @@ export default async function Dashboard() {
           <h2 className="text-2xl font-semibold mb-4">Projects:</h2>
           <table className="min-w-full">
             <tbody>
-              <tr className="border-b">
-                <td className="py-2">Project 1</td>
-                <td className="text-right space-x-2">
-                  <a className="text-indigo-500 hover:text-indigo-600 underline cursor-pointer mr-2">
-                    Edit
-                  </a>
-                  <a className="text-red-500 hover:text-red-600 underline cursor-pointer">
-                    Delete
-                  </a>
-                </td>
-              </tr>
+              {projects.map((project) => (
+                <tr key={project.id} className="border-b">
+                  <td className="py-2">{project.title}</td>
+                  <td className="text-right space-x-2">
+                    <a className="text-indigo-500 hover:text-indigo-600 underline cursor-pointer mr-2">
+                      Edit
+                    </a>
+                    <a className="text-red-500 hover:text-red-600 underline cursor-pointer">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
 
@@ -218,17 +250,19 @@ export default async function Dashboard() {
           <h2 className="text-2xl font-semibold mb-4">Experiences:</h2>
           <table className="min-w-full">
             <tbody>
-              <tr className="border-b">
-                <td className="py-2">Experience 1</td>
-                <td className="text-right space-x-2">
-                  <a className="text-indigo-500 hover:text-indigo-600 underline cursor-pointer mr-2">
-                    Edit
-                  </a>
-                  <a className="text-red-500 hover:text-red-600 underline cursor-pointer">
-                    Delete
-                  </a>
-                </td>
-              </tr>
+              {experiences.map((experience) => (
+                <tr key={experience.id} className="border-b">
+                  <td className="py-2">{experience.title}</td>
+                  <td className="text-right space-x-2">
+                    <a className="text-indigo-500 hover:text-indigo-600 underline cursor-pointer mr-2">
+                      Edit
+                    </a>
+                    <a className="text-red-500 hover:text-red-600 underline cursor-pointer">
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
 

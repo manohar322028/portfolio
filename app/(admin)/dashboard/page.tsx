@@ -1,11 +1,67 @@
+"use client";
+
+import React from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import SignOut from "@/components/signout";
 import { Info, ProfilePicture, OtherSkill } from "@/backend/models/models";
 import { dbConnect } from "@/backend/db";
 import { ISkill } from "@/backend/models/interfaces";
-import { Document } from "mongoose";
+import { get } from "http";
 
 export default async function Dashboard() {
   await dbConnect();
+
+  const [getInfo, setInfo] = useState([]);
+  const [getProfilePicture, setProfilePicture] = useState([]);
+  const [getSkill, setSkill] = useState([]);
+  const [getOtherSkill, setOtherSkill] = useState([]);
+  const [getProject, setProject] = useState([]);
+  const [getExperience, setExperience] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(process.env.MAIN_URL + "/api/skills");
+        setSkill(response.data);
+      } catch (error) {
+        console.error("Error fetching skills data:", error);
+      }
+    };
+
+    fetchData();
+  }, [getSkill]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          process.env.MAIN_URL + "/api/projects"
+        );
+        setProject(response.data);
+      } catch (error) {
+        console.error("Error fetching projects data:", error);
+      }
+    };
+
+    fetchData();
+  }, [getProject]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          process.env.MAIN_URL + "/api/experiences"
+        );
+        setExperience(response.data);
+      } catch (error) {
+        console.error("Error fetching experiences data:", error);
+      }
+    };
+
+    fetchData();
+  }, [getExperience]);
+
   const info = await Info.find();
 
   const profilePicture = await ProfilePicture.find();

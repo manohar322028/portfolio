@@ -11,6 +11,7 @@
     "seeder-destroy": "ts-node --project tsconfig.seeder.json ./backend/seeder.ts -d"
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "faker": "^6.6.6",
     "mongoose": "^8.2.2",

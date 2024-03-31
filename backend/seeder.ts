@@ -5,7 +5,6 @@ import {
   ProfilePicture,
   Project,
   OtherSkill,
-  Intro,
 } from "./models/models";
 import {
   ISkill,
@@ -87,16 +86,16 @@ const otherSkills: IOtherSkill[] = [
 
 dotenv.config({ path: ".env.local" });
 
-const { db_url } = process.env;
+const { MONGODB_URI } = process.env;
 
-if (!db_url) {
+if (!MONGODB_URI) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local"
   );
 }
 
 mongoose
-  .connect(db_url!)
+  .connect(MONGODB_URI!)
   .then(() => {
     console.log("DB Connected");
   })

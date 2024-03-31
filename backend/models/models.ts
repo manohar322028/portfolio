@@ -63,28 +63,20 @@ const experienceSchema = new mongoose.Schema({
   end: { type: String, required: true },
 });
 
-const introSchema = new mongoose.Schema({
-  description: { type: String, required: true },
-});
-
 const infoSchema = new mongoose.Schema({
   heading: { type: String, required: true },
   bio: { type: String, required: true },
-  intros: [introSchema],
+  intros: [] as IIntro[],
 });
 
-export const Intro: mongoose.Model<IIntro> =
-  mongoose.models.intro ||
-  (mongoose.model<IIntro>("intro", introSchema) as mongoose.Model<IIntro>);
-
 export const Info: mongoose.Model<IInfo> =
-  mongoose.models.info ||
-  (mongoose.model<IInfo>("info", infoSchema) as mongoose.Model<IInfo>);
+  mongoose.models.infos ||
+  (mongoose.model<IInfo>("infos", infoSchema) as mongoose.Model<IInfo>);
 
 export const Experience: mongoose.Model<IExperience> =
-  mongoose.models.experience ||
+  mongoose.models.experiences ||
   (mongoose.model<IExperience>(
-    "experience",
+    "experiences",
     experienceSchema
   ) as mongoose.Model<IExperience>);
 

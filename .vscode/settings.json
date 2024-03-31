@@ -1,0 +1,7 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "evenBetterToml.formatter.alignComments": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true
+}

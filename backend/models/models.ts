@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const skillSchema = new mongoose.Schema({
+  id: { type: String, required: true },
   name: {
     type: String,
     required: true,
@@ -37,6 +38,7 @@ const skillSchema = new mongoose.Schema({
 });
 
 const otherSkillSchema = new mongoose.Schema({
+  id: { type: String, required: true },
   name: {
     type: String,
     required: true,

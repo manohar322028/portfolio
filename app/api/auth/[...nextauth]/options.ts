@@ -15,7 +15,7 @@ const options: NextAuthOptions = {
           placeholder: "password",
         },
       },
-      authorize: async (credentials) => {
+      authorize: async (credentials, req) => {
         await dbConnect();
         const user = await User.findOne({
           type: "admin",
@@ -25,10 +25,10 @@ const options: NextAuthOptions = {
 
         if (user) {
           // If authentication is successful, return the user object
-          return Promise.resolve(user);
+          return user;
         } else {
           // If authentication fails, return null
-          return Promise.resolve(null);
+          return null;
         }
       },
     }),

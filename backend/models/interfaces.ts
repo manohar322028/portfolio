@@ -5,11 +5,13 @@ interface IUser {
 }
 
 interface ISkill {
+  id: string;
   name: string;
   icon: string;
 }
 
 interface IOtherSkill {
+  id: string;
   name: string;
 }
 

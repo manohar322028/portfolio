@@ -48,8 +48,8 @@ const otherSkillSchema = new mongoose.Schema({
 const projectSchema = new mongoose.Schema({
   id: { type: String, required: true },
   title: { type: String, required: true },
-  description: { type: String, required: true },
-  image: { type: String, required: true },
+  description: { type: String },
+  image: { type: String },
   link: { type: String, required: true },
 });
 

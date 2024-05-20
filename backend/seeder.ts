@@ -65,7 +65,7 @@ const infos: IInfo[] = [
 
 const profilePictures: IProfilePicture[] = [
   {
-    image: "image",
+    image: "profile_picture.png",
   },
 ];
 

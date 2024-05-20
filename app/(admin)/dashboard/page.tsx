@@ -32,13 +32,13 @@ export default async function Dashboard() {
     JSON.parse(JSON.stringify(res))
   );
   const skills: ISkill[] = await axios
-    .get(process.env.MAIN_URL + "/api/skills")
+    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/skills")
     .then((res) => JSON.parse(JSON.stringify(res.data)));
   const experiences: IExperience[] = await axios
-    .get(process.env.MAIN_URL + "/api/experiences")
+    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/experiences")
     .then((res) => JSON.parse(JSON.stringify(res.data)));
   const projects: IProject[] = await axios
-    .get(process.env.MAIN_URL + "/api/projects")
+    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/projects")
     .then((res) => JSON.parse(JSON.stringify(res.data)));
 
   return (

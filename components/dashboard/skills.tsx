@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { ISkill } from "@/backend/models/interfaces";
 import { updateSkill, updateSkillIcon } from "@/backend/actions/skill.actions";
+import axios from "axios";
 
 interface SkillCardProps {
   skills: ISkill[];
@@ -19,7 +20,6 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
   const [maxId, setMaxId] = useState<number>(
     Math.max(...initialSkills.map((skill) => parseInt(skill.id, 10)), 0)
   );
- 
 
   const handleEdit = (index: number) => {
     const updatedSkills = skills.map((skill, i) => {
@@ -31,9 +31,17 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
     setSkills(updatedSkills);
   };
 
-  const handleDelete = (index: number) => {
-    const updatedSkills = skills.filter((_, i) => i !== index);
-    setSkills(updatedSkills);
+  const handleDelete = async (index: number) => {
+    try {
+      await axios.delete(
+        `${process.env.NEXT_PUBLIC_MAIN_URL}/api/skills/${skills[index].id}`
+      );
+
+      const updatedSkills = skills.filter((_, i) => i !== index);
+      setSkills(updatedSkills);
+    } catch (error) {
+      console.error("Error deleting skill:", error);
+    }
   };
 
   const handleSave = (index: number) => {

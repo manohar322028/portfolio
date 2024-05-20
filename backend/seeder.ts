@@ -23,14 +23,17 @@ import dotenv from "dotenv";
 
 const skills: ISkill[] = [
   {
+    id: "1",
     name: "HTML",
     icon: "fab fa-html5",
   },
   {
+    id: "2",
     name: "CSS",
     icon: "fab fa-css3-alt",
   },
   {
+    id: "3",
     name: "JavaScript",
     icon: "fab fa-js-square",
   },
@@ -78,6 +81,7 @@ const projects: IProject[] = [
 
 const otherSkills: IOtherSkill[] = [
   {
+    id: "1",
     name: "Skill",
   },
 ];

@@ -1,5 +1,5 @@
 "use server";
-import { ProfilePicture } from "../models/models";
+
 import { writeFile } from "fs/promises";
 
 export async function updateProfilePicture(formData: FormData) {

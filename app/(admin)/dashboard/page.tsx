@@ -61,7 +61,7 @@ export default async function Dashboard() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <ProjectCard projects={projects} />
-        <ExperienceCard experiences={experiences} />
+        <ExperienceCard projects={experiences} />
       </div>
     </div>
   );

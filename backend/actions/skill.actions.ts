@@ -44,10 +44,10 @@ export async function updateSkillIcon(formData: FormData) {
     if (existingSkill) {
       await Skill.findOneAndUpdate(
         { id },
-        { id, name, icon: `skill-icons/${filename}` }
+        { id, name, icon: `/skill-icons/${filename}` }
       );
     } else {
-      await Skill.create({ id, name, icon: `skill-icons/${filename}` });
+      await Skill.create({ id, name, icon: `/skill-icons/${filename}` });
     }
   } catch (error) {
     console.error(error);

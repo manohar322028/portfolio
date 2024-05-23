@@ -1,4 +1,6 @@
-const Experience = () => {
+import { IExperience } from "@/backend/models/interfaces";
+
+const Experience = ({ experience }: { experience: IExperience }) => {
   return (
     <>
       <div className="absolute h-4 w-4 rounded-full bg-gray-900" />
@@ -7,12 +9,14 @@ const Experience = () => {
           <div className="col-span-1" />
           <div className="col-span-3 p-2 bg-backgroundcolor bg-opacity-30 rounded-sm shadow">
             <p className="text-lg tracking-tight font-semibold mb-1 text-gray-900">
-              Event Title
+              {experience.title}
             </p>
-            <p className="text-sm text-gray-700 mb-1">(Event Date Range)</p>
+            <p className="text-sm text-gray-700 mb-1">
+              {experience.start}-{experience.end}
+            </p>
             <hr className="border-gray-500 my-1" />
 
-            <p className="text-sm mb-3">Event Description</p>
+            <p className="text-sm mb-3">{experience.description}</p>
           </div>
         </div>
       </div>

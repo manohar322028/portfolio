@@ -1,28 +1,27 @@
 import React from "react";
 
-interface projectProps {
-  name: string;
-  description: string;
-  url: string;
-}
-export default function Project({ project }: { project: projectProps }) {
+import { IProject } from "@/backend/models/interfaces";
+export default function Project({ project }: { project: IProject }) {
+  const backgroundImageUrl = project.image
+    ? `url(${project.image})`
+    : `url(/thumb.jpg)`;
   return (
     <div className="w-full mb-4 bg-white border border-gray-200 rounded-sm shadow">
       <div
         className="h-40 rounded-t-sm bg-cover bg-center "
         style={{
-          backgroundImage: `url(/thumb.jpg)`,
+          backgroundImage: backgroundImageUrl,
         }}
       ></div>
 
       <div className="px-6 pb-4">
         <h5 className="mt-2 text-lg tracking-tight font-semibold text-gray-900">
-          {project.name}
+          {project.title}
         </h5>
 
         <p className="mb-2 text-sm text-gray-700">{project.description}</p>
         <a
-          href="{project.url}"
+          href={project.link}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-backgroundcolor hover:bg-leftcolor rounded-lg  focus:ring-2 focus:outline-none focus:ring-backgroundcolor"
         >
           Github

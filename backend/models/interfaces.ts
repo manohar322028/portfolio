@@ -1,4 +1,5 @@
 interface IUser {
+  id: string;
   username: string;
   password: string;
   type: string;
@@ -43,6 +44,7 @@ interface IInfo {
   heading: string;
   bio: string;
   intros: IIntro[];
+  [key: string]: any;
 }
 
 export type {

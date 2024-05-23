@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ISkill } from "@/backend/models/interfaces";
 import { updateSkill } from "@/backend/actions/skill.actions";
 import axios from "axios";
+import Image from "next/image";
 
 interface SkillCardProps {
   skills: ISkill[];
@@ -150,7 +151,13 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
               ) : (
                 <>
                   <td className="py-2 flex items-center">
-                    <img src={skill.icon} alt="" className="w-6 h-6 mr-2" />
+                    <Image
+                      src={skill.icon}
+                      alt={skill.name}
+                      width={24}
+                      height={24}
+                      className="w-6 h-6 mr-2"
+                    />
                     {skill.name}
                   </td>
                   <td className="text-right space-x-2">

@@ -12,7 +12,7 @@ export default function InfoCard({ info }: { info: IInfo[] }) {
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-    field: string
+    field: keyof IInfo
   ) => {
     const newFormData = [...formData];
     newFormData[0][field] = e.target.value;

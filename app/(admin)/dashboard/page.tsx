@@ -1,5 +1,12 @@
 import SignOut from "@/components/signout";
-import { Info, ProfilePicture, OtherSkill } from "@/backend/models/models";
+import {
+  Info,
+  ProfilePicture,
+  OtherSkill,
+  Skill,
+  Project,
+  Experience,
+} from "@/backend/models/models";
 import { dbConnect } from "@/backend/db";
 import {
   ISkill,
@@ -18,7 +25,6 @@ import SkillCard from "@/components/dashboard/skills";
 import ExperienceCard from "@/components/dashboard/experiences";
 
 import React from "react";
-import axios from "axios";
 
 export default async function Dashboard() {
   await dbConnect();
@@ -31,15 +37,15 @@ export default async function Dashboard() {
   const otherSkill: IOtherSkill[] = await OtherSkill.find().then((res) =>
     JSON.parse(JSON.stringify(res))
   );
-  const skills: ISkill[] = await axios
-    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/skills")
-    .then((res) => JSON.parse(JSON.stringify(res.data)));
-  const experiences: IExperience[] = await axios
-    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/experiences")
-    .then((res) => JSON.parse(JSON.stringify(res.data)));
-  const projects: IProject[] = await axios
-    .get(process.env.NEXT_PUBLIC_MAIN_URL + "/api/projects")
-    .then((res) => JSON.parse(JSON.stringify(res.data)));
+  const skills: ISkill[] = await Skill.find().then((res) =>
+    JSON.parse(JSON.stringify(res))
+  );
+  const experiences: IExperience[] = await Experience.find().then((res) =>
+    JSON.parse(JSON.stringify(res))
+  );
+  const projects: IProject[] = await Project.find().then((res) =>
+    JSON.parse(JSON.stringify(res))
+  );
 
   return (
     <div className="bg-gray-900 text-white px-8 py-12 h-full">

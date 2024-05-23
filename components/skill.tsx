@@ -2,7 +2,7 @@ import { ISkill } from "@/backend/models/interfaces";
 
 const Skill = ({ skill }: { skill: ISkill }) => {
   return (
-    <svg className="w-20 h-20" viewBox="0 0 200 200">
+    <svg className="w-50 h-50" viewBox="0 0 200 200">
       <defs>
         <clipPath id="shield" clipPathUnits="objectBoundingBox">
           <path
@@ -16,8 +16,7 @@ const Skill = ({ skill }: { skill: ISkill }) => {
       <image
         href={skill.icon}
         clipPath="url(#shield)"
-        width="100%"
-        height="100%"
+        className="object-cover object-center w-[80%] h-[80%]"
         preserveAspectRatio="xMidYMid meet"
       />
     </svg>

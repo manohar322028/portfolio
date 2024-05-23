@@ -6,7 +6,7 @@ export default function Project({ project }: { project: IProject }) {
     ? `url(${project.image})`
     : `url(/thumb.jpg)`;
   return (
-    <div className="w-full mb-4 bg-white border border-gray-200 rounded-sm shadow">
+    <div className=" w-full mb-4 bg-white border border-gray-200 rounded-sm shadow">
       <div
         className="h-40 rounded-t-sm bg-cover bg-center "
         style={{
@@ -24,7 +24,7 @@ export default function Project({ project }: { project: IProject }) {
           href={project.link}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-backgroundcolor hover:bg-leftcolor rounded-lg  focus:ring-2 focus:outline-none focus:ring-backgroundcolor"
         >
-          Github
+          View Project
           <svg
             className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
             aria-hidden="true"

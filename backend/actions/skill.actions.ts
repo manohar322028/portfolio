@@ -21,36 +21,36 @@ export async function updateSkill(formData: ISkill) {
   }
 }
 
-export async function updateSkillIcon(formData: FormData) {
-  try {
-    const file = formData.get("file");
-    const name = formData.get("name");
-    const id = formData.get("id");
-    if (!file) {
-      throw new Error("No file found in form data.");
-    }
-    if (!(file instanceof File)) {
-      throw new Error("Invalid file type.");
-    }
-    const buffer = await file.arrayBuffer();
-    const image = Buffer.from(buffer);
+// export async function updateSkillIcon(formData: FormData) {
+//   try {
+//     const file = formData.get("file");
+//     const name = formData.get("name");
+//     const id = formData.get("id");
+//     if (!file) {
+//       throw new Error("No file found in form data.");
+//     }
+//     if (!(file instanceof File)) {
+//       throw new Error("Invalid file type.");
+//     }
+//     const buffer = await file.arrayBuffer();
+//     const image = Buffer.from(buffer);
 
-    const filename = `${name}.png`;
-    const pathname = process.cwd() + `/public/skill-icons/${filename}`;
-    await writeFile(pathname, image);
+//     const filename = `${name}.png`;
+//     const pathname = process.cwd() + `/public/skill-icons/${filename}`;
+//     await writeFile(pathname, image);
 
-    const existingSkill = await Skill.findOne({ id });
+//     const existingSkill = await Skill.findOne({ id });
 
-    if (existingSkill) {
-      await Skill.findOneAndUpdate(
-        { id },
-        { id, name, icon: `/skill-icons/${filename}` }
-      );
-    } else {
-      await Skill.create({ id, name, icon: `/skill-icons/${filename}` });
-    }
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-}
+//     if (existingSkill) {
+//       await Skill.findOneAndUpdate(
+//         { id },
+//         { id, name, icon: `/skill-icons/${filename}` }
+//       );
+//     } else {
+//       await Skill.create({ id, name, icon: `/skill-icons/${filename}` });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// }

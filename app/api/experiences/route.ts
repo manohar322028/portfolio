@@ -15,26 +15,15 @@ export async function POST(req: NextRequest) {
   try {
     const experience: IExperience = await req.json();
 
-    const existingExperience = await Experience.findOne({
+    await Experience.create(experience);
+
+    const newExperience = await Experience.findOne({
       title: experience.title,
     });
-
-    if (existingExperience) {
-      return NextResponse.json("Experience already exists", {
-        headers: { "content-type": "text" },
-        status: 409,
-      });
-    } else {
-      await Experience.create(experience);
-
-      const newExperience = await Experience.findOne({
-        title: experience.title,
-      });
-      return NextResponse.json(newExperience, {
-        headers: { "content-type": "application/json" },
-        status: 201,
-      });
-    }
+    return NextResponse.json(newExperience, {
+      headers: { "content-type": "application/json" },
+      status: 201,
+    });
   } catch (error) {
     return NextResponse.json(error, {
       headers: { "content-type": "text" },

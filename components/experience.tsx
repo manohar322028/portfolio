@@ -11,12 +11,16 @@ const Experience = ({ experience }: { experience: IExperience }) => {
             <p className="text-lg tracking-tight font-semibold mb-1 text-gray-900">
               {experience.title}
             </p>
-            <p className="text-sm text-gray-700 mb-1">
-              {experience.start}-{experience.end}
-            </p>
-            <hr className="border-gray-500 my-1" />
 
-            <p className="text-sm mb-3">{experience.description}</p>
+            <p className="text-sm mb-1">{experience.description}</p>
+
+            <hr className="border-gray-500 my-1" />
+            <p className="text-sm text-gray-700 mb-1 mt-2">
+              {experience.end === ""
+                ? experience.start
+                : `${experience.start} -
+              ${experience.end}`}
+            </p>
           </div>
         </div>
       </div>

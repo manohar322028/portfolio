@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { IProfilePicture } from "@/backend/models/interfaces";
 import { updateProfilePicture } from "@/backend/actions/profilepicture.actions";
+import Image from "next/image";
 
 export default function ProfilePictureCard({
   profilePicture,
@@ -40,17 +41,19 @@ export default function ProfilePictureCard({
     updateProfilePicture(formData);
   };
 
+  const profSrc = selectedImage
+    ? URL.createObjectURL(selectedImage)
+    : profilePicture[0].image;
+
   return (
     <section className="bg-gray-800 rounded-lg p-6 shadow-md text-center">
       <h2 className="text-2xl font-semibold mb-4">Profile Picture:</h2>
       <div className="flex flex-col items-center mb-4">
         <div className="w-4/5 h-[80%] mb-4 rounded-full overflow-hidden">
-          <img
-            src={
-              selectedImage
-                ? URL.createObjectURL(selectedImage)
-                : profilePicture[0].image
-            }
+          <Image
+            src={profSrc}
+            height={200}
+            width={200}
             alt="Profile"
             className="w-full h-full object-cover"
           />

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ISkill } from "@/backend/models/interfaces";
-import { updateSkill, updateSkillIcon } from "@/backend/actions/skill.actions";
+import { updateSkill } from "@/backend/actions/skill.actions";
 import axios from "axios";
 
 interface SkillCardProps {
@@ -12,7 +12,6 @@ interface SkillCardProps {
 interface EditableSkill extends ISkill {
   isEditing?: boolean;
   isNew?: boolean;
-  file?: File | null;
 }
 
 export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
@@ -46,27 +45,14 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
 
   const handleSave = (index: number) => {
     const skill = skills[index];
-    const { isEditing, isNew, file, ...rest } = skill;
+    const { isEditing, isNew, ...rest } = skill;
 
-    if (file) {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("name", skill.name);
-      formData.append("id", skill.id);
-      updateSkillIcon(formData);
-    } else {
-      updateSkill(rest);
-    }
-
-    var uploadedImageUrl: string = "";
-
-    if (file) uploadedImageUrl = URL.createObjectURL(file);
+    updateSkill(rest);
 
     const updatedSkills = skills.map((skill, i) => {
       if (i === index) {
         return {
           ...rest,
-          icon: uploadedImageUrl ? uploadedImageUrl : skill.icon,
         };
       }
       return skill;
@@ -81,7 +67,7 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
           return null;
         }
         if (i === index) {
-          const { isEditing, file, ...rest } = skill;
+          const { isEditing, ...rest } = skill;
           return rest;
         }
         return skill;
@@ -101,7 +87,6 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
         icon: "",
         isEditing: true,
         isNew: true,
-        file: null,
       },
     ]);
   };
@@ -110,16 +95,6 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
     const updatedSkills = skills.map((skill, i) => {
       if (i === index) {
         return { ...skill, [field]: value };
-      }
-      return skill;
-    });
-    setSkills(updatedSkills);
-  };
-
-  const handleFileChange = (index: number, file: File | null) => {
-    const updatedSkills = skills.map((skill, i) => {
-      if (i === index) {
-        return { ...skill, file };
       }
       return skill;
     });
@@ -136,6 +111,7 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
               {skill.isEditing ? (
                 <>
                   <td className="py-2">
+                    <label className="px-2">name</label>
                     <input
                       type="text"
                       value={skill.name}
@@ -145,15 +121,13 @@ export default function SkillCard({ skills: initialSkills }: SkillCardProps) {
                       className="bg-gray-700 text-white rounded px-2"
                     />
                   </td>
+                  <label className="px-2">icon link</label>
                   <td className="py-2">
                     <input
-                      type="file"
-                      accept="image/*"
+                      type="text"
+                      value={skill.icon}
                       onChange={(e) =>
-                        handleFileChange(
-                          index,
-                          e.target.files ? e.target.files[0] : null
-                        )
+                        handleChange(index, "icon", e.target.value)
                       }
                       className="bg-gray-700 text-white rounded px-2"
                     />

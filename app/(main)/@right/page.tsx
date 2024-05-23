@@ -1,4 +1,4 @@
-import Skill from "@/components/skill";
+import Image from "next/image";
 import Project from "@/components/project";
 import Experience from "@/components/experience";
 import { dbConnect } from "@/backend/db";
@@ -61,7 +61,13 @@ export default async function Right() {
           <div className="mx-auto my-4 gap-4 grid grid-cols-3 sm:grid-cols-7 md:grid-cols-6 xl:grid-cols-7 2xl:grid-cols-8 ">
             {skills.map((skill) => (
               <div key={skill.name} className="flex flex-col items-center">
-                <Skill skill={skill} />
+                <Image
+                  alt={skill.name}
+                  src={skill.icon}
+                  width={50}
+                  height={50}
+                  className="mb-2"
+                />
                 <p className="text-xs">{skill.name}</p>
               </div>
             ))}
@@ -73,7 +79,7 @@ export default async function Right() {
             ))}
           </div>
         </div>
-        <div className="bg-rightcolor1 px-4 md:px-8 py-6">
+        <div className="bg-rightcolor1 px-4 md:px-8 pt-6 pb-3">
           <h2 className="text-2xl">Digital Dilemmas</h2>
           <div className=" my-4 sm:gap-x-4 sm:grid sm:grid-cols-2 items-center justify-center">
             {Object.values(projects).map((project) => (

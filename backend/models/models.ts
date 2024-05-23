@@ -62,7 +62,7 @@ const experienceSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   start: { type: String, required: true },
-  end: { type: String, required: true },
+  end: { type: String },
 });
 
 const infoSchema = new mongoose.Schema({

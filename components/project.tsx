@@ -22,6 +22,7 @@ export default function Project({ project }: { project: IProject }) {
         <p className="mb-2 text-sm text-gray-700">{project.description}</p>
         <a
           href={project.link}
+          target="_blank"
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-backgroundcolor hover:bg-leftcolor rounded-lg  focus:ring-2 focus:outline-none focus:ring-backgroundcolor"
         >
           View Project

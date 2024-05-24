@@ -8,6 +8,8 @@ import { Info } from "@/backend/models/models";
 import { IInfo } from "@/backend/models/interfaces";
 import { dbConnect } from "@/backend/db";
 
+export const dynamic = "force-dynamic";
+
 export default async function Left() {
   await dbConnect();
   const info: IInfo[] = await Info.find().then((res) =>
